@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Car List</h2>
+    <p>Below is the list of available cars for rent:</p>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Model</th>
+                <th>Year</th>
+                <th>Type</th>
+                <th>Category</th>
+                <th>Daily Rate</th>
+                <th>Weekly Rate</th>
+                <th>Owner Type</th>
+                <th>Owner Name</th>
+                <th>Capacity</th>
+                <th>Transmission Type</th>
+                <th>Fuel Type</th>
+                <th>Mileage</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for car in cars %}
+                <tr>
+                    <td>{{ car[0] }}</td> <!-- ID -->
+                    <td>{{ car[1] }}</td> <!-- Model -->
+                    <td>{{ car[2] }}</td> <!-- Year -->
+                    <td>{{ car[3] }}</td> <!-- Type -->
+                    <td>{{ car[4] }}</td> <!-- Category -->
+                    <td>{{ car[5] }}</td> <!-- Daily Rate -->
+                    <td>{{ car[6] }}</td> <!-- Weekly Rate -->
+                    <td>{{ car[7] }}</td> <!-- Owner Type -->
+                    <td>{{ car[8] }}</td> <!-- Owner Name -->
+                    <td>{{ car[9] }}</td> <!-- Capacity -->
+                    <td>{{ car[10] }}</td> <!-- Transmission Type -->
+                    <td>{{ car[11] }}</td> <!-- Fuel Type -->
+                    <td>{{ car[12] }}</td> <!-- Mileage -->
+                    <td>
+                        <a href="{{ url_for('edit_car', car_id=car[0]) }}">Edit</a> |
+                        <a href="{{ url_for('delete_car', car_id=car[0]) }}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p>
+        <a href="{{ url_for('add_car') }}">Add New Car</a> |
+        <a href="{{ url_for('delete_all_cars') }}">Delete All Cars</a>
+    </p>
+{% endblock %}

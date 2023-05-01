@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="ststic\main.css">
+<div class="container">
+    <h1 class="mt-5 mb-4">Dashboard</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Cars</h5>
+                    <p class="card-text">Manage cars in the system.</p>
+                    <a href="{{ url_for('car_list') }}" class="btn btn-primary">View Cars</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Rentals</h5>
+                    <p class="card-text">Manage rental transactions.</p>
+                    <a href="{{ url_for('rental_list') }}" class="btn btn-primary">View Rentals</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">customers</h5>
+                    <p class="card-text">Manage customers transactions.</p>
+                    <a href="{{ url_for('customer_list') }}" class="btn btn-primary">View customers</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">customers</h5>
+                    <p class="card-text">Manage availability transactions.</p>
+                    <a href="{{ url_for('nonavailability_list') }}" class="btn btn-primary">View availability</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

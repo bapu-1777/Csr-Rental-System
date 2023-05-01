@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Edit Car</h2>
+    <p>Update the details for the car:</p>
+    <form action="{{ url_for('edit_car', car_id=car[0]) }}" method="post"> <!-- Change car.id to car[0] -->
+        <label for="model">Model:</label>
+        <input type="text" id="model" name="model" value="{{ car[1] }}" required> <!-- Change car.model to car[1] -->
+
+        <label for="year">Year:</label>
+        <input type="number" id="year" name="year" value="{{ car[2] }}" required> <!-- Change car.year to car[2] -->
+
+        <label for="type">Type:</label>
+        <input type="text" id="type" name="type" value="{{ car[3] }}" required> <!-- Change car.type to car[3] -->
+
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category" value="{{ car[4] }}" required> <!-- Change car.category to car[4] -->
+
+        <label for="daily_rate">Daily Rate:</label>
+        <input type="number" step="0.01" id="daily_rate" name="daily_rate" value="{{ car[5] }}" required> <!-- Change car.daily_rate to car[5] -->
+
+        <label for="weekly_rate">Weekly Rate:</label>
+        <input type="number" step="0.01" id="weekly_rate" name="weekly_rate" value="{{ car[6] }}" required> <!-- Change car.weekly_rate to car[6] -->
+
+        <label for="owner_type">Owner Type:</label>
+        <input type="text" id="owner_type" name="owner_type" value="{{ car[7] }}" required> <!-- Change car.owner_type to car[7] -->
+
+        <label for="owner_name">Owner Name:</label>
+        <input type="text" id="owner_name" name="owner_name" value="{{ car[8] }}" required> <!-- Change car.owner_name to car[8] -->
+
+        <label for="capacity">Capacity:</label>
+        <input type="number" id="capacity" name="capacity" value="{{ car[9] }}" required> <!-- Change car.capacity to car[9] -->
+
+        <label for="transmission_type">Transmission Type:</label>
+        <input type="text" id="transmission_type" name="transmission_type" value="{{ car[10] }}" required> <!-- Change car.transmission_type to car[10] -->
+
+        <label for="fuel_type">Fuel Type:</label>
+        <input type="text" id="fuel_type" name="fuel_type" value="{{ car[11] }}" required> <!-- Change car.fuel_type to car[11] -->
+
+        <label for="mileage">Mileage:</label>
+        <input type="number" id="mileage" name="mileage" value="{{ car[12] }}" required> <!-- Change car.mileage to car[12] -->
+
+        <input type="submit" value="Update Car">
+    </form>
+{% endblock %}

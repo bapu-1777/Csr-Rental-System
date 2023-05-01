@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Add Nonavailability</h2>
+    <p>Fill in the details below to add a new nonavailability entry:</p>
+    <form action="{{ url_for('add_nonavailability') }}" method="post">
+        <label for="car_id">Car ID:</label>
+        <input type="number" id="car_id" name="car_id" required>
+
+        <label for="start_date">Start Date:</label>
+        <input type="date" id="start_date" name="start_date" required>
+
+        <label for="end_date">End Date:</label>
+        <input type="date" id="end_date" name="end_date" required>
+
+        <input type="submit" value="Add Nonavailability">
+    </form>
+{% endblock %}

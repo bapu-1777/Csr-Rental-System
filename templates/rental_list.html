@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Rental List</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Rental Type</th>
+                <th>No. of Days</th>
+                <th>No. of Weeks</th>
+                <th>Start Date</th>
+                <th>Return Date</th>
+                <th>Amount Due</th>
+                <th>Customer ID</th>
+                <th>Car ID</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rental in rentals %}
+                <tr>
+                    <td>{{ rental[0] }}</td> <!-- ID -->
+                    <td>{{ rental[1] }}</td> <!-- Rental Type -->
+                    <td>{{ rental[2] }}</td> <!-- No of Days -->
+                    <td>{{ rental[3] }}</td> <!-- No of Weeks -->
+                    <td>{{ rental[4] }}</td> <!-- Start Date -->
+                    <td>{{ rental[5] }}</td> <!-- Return Date -->
+                    <td>{{ rental[6] }}</td> <!-- Amount Due -->
+                    <td>{{ rental[7] }}</td> <!-- Customer ID -->
+                    <td>{{ rental[8] }}</td> <!-- Car ID -->
+                    <td>
+                        <a href="{{ url_for('edit_rental', rental_id=rental[0]) }}">Edit</a> |
+                        <a href="{{ url_for('delete_rental', rental_id=rental[0]) }}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p>
+        <a href="{{ url_for('add_rental') }}">Add New Rental</a> |
+        <a href="{{ url_for('delete_all_rentals') }}">Delete All Rentals</a>
+    </p>
+{% endblock %}

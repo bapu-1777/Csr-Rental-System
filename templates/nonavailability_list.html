@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Nonavailability List</h2>
+    <p>Below is the list of nonavailability entries:</p>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Car ID</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in nonavailability %}
+                <tr>
+                    <td>{{ entry[0] }}</td> <!-- ID -->
+                    <td>{{ entry[1] }}</td> <!-- Car ID -->
+                    <td>{{ entry[2] }}</td> <!-- Start Date -->
+                    <td>{{ entry[3] }}</td> <!-- End Date -->
+                    <td>
+                        <a href="{{ url_for('edit_nonavailability', entry_id=entry[0]) }}">Edit</a> |
+                        <a href="{{ url_for('delete_nonavailability', entry_id=entry[0]) }}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p>
+        <a href="{{ url_for('add_nonavailability') }}">Add New Nonavailability</a> |
+        <a href="{{ url_for('delete_all_nonavailability') }}">Delete All Nonavailability</a>
+    </p>
+{% endblock %}

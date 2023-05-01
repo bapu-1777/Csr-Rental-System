@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Update Rental</h2>
+    <form action="{{ url_for('edit_rental', rental_id=rental.id) }}" method="post">
+        <label for="rental_type">Rental Type:</label>
+        <select name="rental_type" id="rental_type">
+            <option value="daily" {% if rental.rental_type == 'daily' %}selected{% endif %}>Daily</option>
+            <option value="weekly" {% if rental.rental_type == 'weekly' %}selected{% endif %}>Weekly</option>
+        </select>
+        <label for="no_of_days">No. of Days:</label>
+        <input type="number" name="no_of_days" id="no_of_days" value="{{ rental.no_of_days }}" required>
+        <label for="no_of_weeks">No. of Weeks:</label>
+        <input type="number" name="no_of_weeks" id="no_of_weeks" value="{{ rental.no_of_weeks }}" required>
+        <label for="start_date">Start Date:</label>
+        <input type="date" name="start_date" id="start_date" value="{{ rental.start_date }}" required>
+        <label for="return_date">Return Date:</label>
+        <input type="date" name="return_date" id="return_date" value="{{ rental.return_date }}" required>
+        <label for="customer_id">Customer ID:</label>
+        <input type="number" name="customer_id" id="customer_id" value="{{ rental.customer_id }}" required>
+        <label for="car_id">Car ID:</label>
+        <input type="number" name="car_id" id="car_id" value="{{ rental.car_id }}" required>
+        <input type="submit" value="Update">
+    </form>
+{% endblock %}
